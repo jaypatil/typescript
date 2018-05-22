@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UniversityLibrarian, Researcher, Employee } from './mixins';
+import './pre-test';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent {
   //   let newLibrarian = new UniversityLibrarian();
   //   newLibrarian.doResearch('Economics');
   // }
+
   // Async And Await
   // constructor() {
   //   let GetDataFromServer = () => setTimeout(() => 'response', 500000);

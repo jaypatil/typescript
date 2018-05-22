@@ -1,0 +1,18 @@
+{
+    "update.channel": "none",
+    "telemetry.enableTelemetry": false,
+    "extensions.ignoreRecommendations": true,
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/.git": false,
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "editor.fontSize": 16,
+    "workbench.colorCustomizations": {
+        "terminal.foreground": "#00FD61",
+    },
+    "terminal.integrated.fontSize": 16
+}

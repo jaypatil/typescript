@@ -612,3 +612,33 @@
 // thrower = addLogging(thrower);
 // thrower = addLogging2(thrower, dummy.logger);
 // thrower(1, 2, 3);
+
+// const memoize = fn => {
+//   let cache = {};
+//   return x => (x in cache ? cache[x] : (cache[x] = fn(x)));
+// };
+
+// let fib = n => {
+//   console.log(n);
+//   if (n == 0) {
+//     return 0;
+//   } else if (n == 1) {
+//     return 1;
+//   } else {
+//     return fib(n - 2) + fib(n - 1);
+//   }
+// };
+
+// fib(6);
+
+// fib = memoize(fib);
+
+// fib(6);
+
+// fib(5);
+
+// Currying
+// Partial Currying
+// Chaining
+// Composing
+// Pipeline

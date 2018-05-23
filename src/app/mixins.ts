@@ -1,3 +1,4 @@
+import { sealed, logger, writable } from './decorators';
 export interface Person {
   name: string;
   email: string;
@@ -26,11 +27,14 @@ export class Researcher {
   }
 }
 
+// @logger
+// @sealed('UniversityLibrarian')
 export class UniversityLibrarian implements Librarian, Employee, Researcher {
   name: string;
   email: string;
   department: string;
 
+  // @writable(true)
   assistCustomer(custName: string) {
     console.log(this.name + ' is assisting ' + custName);
   }

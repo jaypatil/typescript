@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UniversityLibrarian, Researcher, Employee, applyMixins } from './mixins';
 import './pre-test';
+import { Greeter } from './decorators';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,11 @@ import './pre-test';
 })
 export class AppComponent {
   title = 'Angular';
+
+  // Decorator
+  // constructor() {
+  //   console.log(new Greeter('world'));
+  // }
 
   // Intersection types
   // CreatePersonaliry(): Employee & Researcher {
@@ -19,6 +25,7 @@ export class AppComponent {
   // constructor() {
   //  this.CreatePersonaliry().doResearch('Economics');
   // }
+
   // https://codingblast.com/typescript-intersection-types/
 
   // Mixins

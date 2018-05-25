@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UniversityLibrarian, Researcher, Employee, applyMixins } from './mixins';
 import './pre-test';
 import { Greeter } from './decorators';
+import { C, getClassNameSymbol } from './symbols';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,25 @@ import { Greeter } from './decorators';
 })
 export class AppComponent {
   title = 'Angular';
+
+  // Symbols
+  // constructor() {
+  //   let c = new C();
+  //   let className = c[getClassNameSymbol]();
+  // }
+
+  // constructor() {
+  //   let libraryCustomer = {
+  //     name: 'Thorne',
+  //     assistCustomer: (custName: string) => console.log(`Assisting ${custName}`)
+  //   };
+
+  //   if (libraryCustomer instanceof UniversityLibrarian) {
+  //     console.log('A helpful librarian.');
+  //   } else {
+  //     console.log('Not a librarian.');
+  //   }
+  // }
 
   // Decorator
   // constructor() {

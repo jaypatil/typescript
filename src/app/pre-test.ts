@@ -563,7 +563,7 @@
 //     return this.every(v => !fn(v));
 // };
 
-// Advanced Logger
+// Advanced Logger 1
 
 // const addLogging = fn => (...args) => {
 //   console.log(`entering ${fn.name}: ${args}`);
@@ -578,8 +578,25 @@
 // };
 
 // let something = (a, b) => `result=${a}:${b}`;
+
 // something = addLogging(something);
 // something(22, 9);
+// let thrower = (a, b, c) => {
+//   if (1 === 1) {
+//     throw new Error('CRASH!');
+//   } else {
+//     return null;
+//   }
+// };
+
+// thrower = addLogging(thrower);
+// try {
+//   thrower(1, 2, 3);
+// } catch (e) {
+//   console.log(e);
+// }
+
+// Advanced Logger 2
 
 // const addLogging2 = (fn, logger = console.log) => (...args) => {
 //   logger(`entering ${fn.name}: ${args}`);
@@ -605,37 +622,60 @@
 // something2 = addLogging2(something2, dummy.logger);
 // something2(22, 9);
 
-// let thrower = (a, b, c) => {
-//   throw 'CRASH!';
-// };
-
-// thrower = addLogging(thrower);
-// thrower = addLogging2(thrower, dummy.logger);
-// thrower(1, 2, 3);
-
-// const memoize = fn => {
-//   let cache = {};
-//   return x => (x in cache ? cache[x] : (cache[x] = fn(x)));
-// };
-
-// let fib = n => {
-//   console.log(n);
-//   if (n == 0) {
-//     return 0;
-//   } else if (n == 1) {
-//     return 1;
+// let thrower2 = (a, b, c) => {
+//   if (1 === 1) {
+//     throw new Error('CRASH!');
 //   } else {
-//     return fib(n - 2) + fib(n - 1);
+//     return null;
 //   }
 // };
 
+// thrower2 = addLogging2(thrower2, dummy.logger);
+// try {
+//   thrower2(1, 2, 3);
+// } catch (e) {
+//   console.log(e);
+// }
+
+// Advanced Caching
+let cache;
+const memoize = fn => {
+  cache = {};
+  return x => (x in cache ? cache[x] : (cache[x] = fn(x)));
+};
+
+// Question
+function newCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
+  };
+}
+const nc = newCounter();
+let fib = n => {
+  console.log(nc());
+  if (n == 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1;
+  } else {
+    return fib(n - 2) + fib(n - 1);
+  }
+};
+
 // fib(6);
 
-// fib = memoize(fib);
+fib = memoize(fib);
 
-// fib(6);
+console.log('fib(6) : ', fib(2));
+console.log('cache:', JSON.stringify(cache));
+console.log('fib(6) : ', fib(5));
+console.log('cache:', JSON.stringify(cache));
+console.log('fib(8) : ', fib(2));
+console.log('cache:', JSON.stringify(cache));
 
-// fib(5);
+// 0, 1, 1, 2, 3, 5, 8,
 
 // Currying
 // Partial Currying
